@@ -1,899 +1,800 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Butter uhh🪄</title>
     <style>
-        /* =========================================
+      /* =========================================
            CSS VARIABLES & RESET
            ========================================= */
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap");
 
-        :root {
-            --bg-color: #fff5f8;
-            --pink: #ffb7b2;
-            --light-pink: #ffd1dc;
-            --lavender: #e2d1f9;
-            --light-blue: #b5ead7;
-            --text-dark: #5d5c61;
-            --white: #ffffff;
-            --shadow: 0 8px 24px rgba(255, 183, 178, 0.25);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+      :root {
+        --bg-color: #fffafa;
+        --pink: #ffb7b2;
+        --dark-pink: #ff8b94;
+        --light-pink: #ffe4e1;
+        --lavender: #e2d1f9;
+        --mint: #b5ead7;
+        --butter: #fff4bd;
+        --text-dark: #4a4a4a;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(255, 183, 178, 0.3);
+        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Nunito", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        text-align: center;
+      }
 
-        /* =========================================
-           UTILITIES & BUTTONS
-           ========================================= */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+      h1,
+      h2,
+      h3 {
+        font-family: "Nunito", sans-serif;
+        font-weight: 800;
+        color: var(--dark-pink);
+        margin-bottom: 1.5rem;
+      }
 
-        h1, h2 {
-            color: #ff8b94;
-            margin-bottom: 1rem;
-        }
+      .cursive {
+        font-family: "Pacifico", cursive;
+        color: #ff7480;
+      }
 
-        .btn {
-            background: linear-gradient(135deg, var(--pink), #ff8b94);
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: inline-block;
-            text-decoration: none;
-        }
+      .btn {
+        background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+        color: white;
+        border: none;
+        padding: 14px 40px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        display: inline-block;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 28px rgba(255, 139, 148, 0.4);
-        }
-
-        /* =========================================
+      /* =========================================
            HERO SECTION
            ========================================= */
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--lavender) 100%);
-            overflow: hidden;
-            padding: 2rem;
-        }
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
+        overflow: hidden;
+        padding: 2rem 0;
+      }
 
-        .hero-content {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 3rem;
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            z-index: 10;
-            animation: fadeInDown 1s ease-out;
-        }
+      .hero-content {
+        background: rgba(255, 255, 255, 0.4);
+        padding: 3rem;
+        border-radius: 40px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: var(--shadow);
+        z-index: 10;
+        animation: bounceIn 1.2s ease-out;
+        max-width: 90%;
+        text-align: center;
+      }
 
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-        }
+      .hero-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 2rem;
+      }
 
-        /* Floating Hearts Animation Background */
-        .heart-bg {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.6);
-            animation: floatUp 8s linear infinite;
-            z-index: 1;
-            user-select: none;
-        }
-
-        /* =========================================
-           APPRECIATION SECTION
+      /* =========================================
+           STORY SECTIONS
            ========================================= */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+      .story-box {
+        background: white;
+        padding: 3rem;
+        border-radius: 35px;
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+        border-left: 8px solid var(--pink);
+        text-align: left;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.8s ease-out;
+      }
 
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            border-bottom: 4px solid var(--light-blue);
-        }
+      .story-box.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .melt-section {
+        background: linear-gradient(to bottom, #fffafa, #fff4bd66);
+        padding: 4rem 2rem;
+        border-radius: 40px;
+        margin: 2rem 0;
+        text-align: center;
+        border: 2px dashed var(--butter);
+      }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--pink);
-        }
+      .melt-text {
+        font-size: 1.25rem;
+        font-style: italic;
+        color: #555;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+        white-space: pre-line;
+      }
 
-        /* =========================================
-           COMFORT SECTION
+      /* =========================================
+           VOICE MESSAGE SECTION
            ========================================= */
-        #comfort {
-            background-color: var(--white);
-            border-radius: 40px;
-            margin: 2rem;
-            box-shadow: var(--shadow);
-        }
+      .voice-section {
+        margin: 4rem 0;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 40px;
+        box-shadow: var(--shadow);
+      }
 
-        #comfort-message {
-            min-height: 80px;
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #ff8b94;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
+      .voice-card {
+        display: flex;
+        align-items: center;
+        background: var(--light-pink);
+        padding: 1.5rem;
+        border-radius: 25px;
+        margin: 1.5rem 0;
+        gap: 1.5rem;
+        transition: var(--transition);
+      }
 
-        /* =========================================
-           GAME SECTION
+      .voice-card:hover {
+        transform: scale(1.02);
+      }
+
+      .play-btn {
+        width: 60px;
+        height: 60px;
+        background: var(--dark-pink);
+        border-radius: 50%;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .voice-info {
+        text-align: left;
+        flex-grow: 1;
+      }
+      .voice-info h4 {
+        color: var(--text-dark);
+        margin-bottom: 4px;
+      }
+      .voice-info p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* =========================================
+           TIMELINE & OTHER SECTIONS
            ========================================= */
-        #game-section {
-            background: linear-gradient(to bottom, #fff5f8, var(--light-blue));
-            padding: 4rem 1rem;
-        }
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 20px 0;
+      }
 
-        .game-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            background: var(--white);
-            border: 4px solid var(--pink);
-        }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: var(--light-pink);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 10px;
+      }
 
-        #gameCanvas {
-            display: block;
-            width: 100%;
-            background-color: #fcfcfc;
-            /* Remove touch actions to allow swipe on mobile */
-            touch-action: none; 
-        }
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: 0.6s ease-out;
+      }
 
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background: var(--pink);
-            color: white;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        transform: translateX(50px);
+      }
+      .timeline-item:nth-child(even).visible {
+        transform: translateX(0);
+      }
 
-        .game-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            backdrop-filter: blur(3px);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
+      .timeline-content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
 
-        .game-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
+      .timeline-item::after {
+        content: "🎂";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: -17px;
+        top: 15px;
+        background-color: white;
+        border: 4px solid var(--pink);
+        border-radius: 50%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+      .timeline-item:nth-child(even)::after {
+        left: -13px;
+      }
 
-        .feedback-text {
-            position: absolute;
-            font-weight: bold;
-            color: #ff8b94;
-            pointer-events: none;
-            animation: floatUpFade 1s ease-out forwards;
-            z-index: 5;
-        }
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 2rem 0;
+      }
 
-        .mobile-controls {
-            margin-top: 15px;
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            display: none;
-        }
+      .countdown-box {
+        background: white;
+        padding: 15px;
+        border-radius: 20px;
+        min-width: 80px;
+        box-shadow: 0 5px 15px rgba(255, 139, 148, 0.2);
+        border: 2px solid var(--light-pink);
+      }
 
-        @media (max-width: 768px) {
-            .mobile-controls {
-                display: block;
-            }
-        }
+      .countdown-num {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark-pink);
+        display: block;
+      }
 
-        /* =========================================
-           FINAL SECTION
-           ========================================= */
-        #final-section {
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-        }
+      /* Error Message Styling */
+      #error-overlay {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff4d4d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        z-index: 10000;
+        display: none;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
 
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            position: relative;
-            min-height: 100px;
-        }
+      #game-section {
+        padding: 4rem 1rem;
+        background: #fff;
+      }
+      .game-wrapper {
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 30px;
+        padding: 15px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        border: 8px solid var(--butter);
+      }
 
-        .btn-yes {
-            background: var(--light-blue);
-            color: var(--text-dark);
-        }
+      #gameCanvas {
+        display: block;
+        width: 100%;
+        border-radius: 15px;
+        background: #fafafa;
+        touch-action: none;
+      }
 
-        .btn-no {
-            background: var(--pink);
-            position: absolute;
-            transition: top 0.3s ease, left 0.3s ease;
-        }
+      .music-player {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+      }
 
-        /* Full screen final message */
-        #success-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: linear-gradient(135deg, var(--light-pink), var(--light-blue));
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1s ease;
-        }
+      .music-btn {
+        background: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border: none;
+      }
 
-        #success-screen.active {
-            opacity: 1;
-            pointer-events: all;
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
         }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-        #success-screen h1 {
-            color: white;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            animation: pulse 2s infinite;
+      @media screen and (max-width: 600px) {
+        .timeline::after {
+          left: 31px;
         }
-
-        /* =========================================
-           ANIMATIONS
-           ========================================= */
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
         }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .timeline-item::after {
+          left: 15px;
         }
-
-        @keyframes floatUpFade {
-            0% { opacity: 1; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+        .timeline-item:nth-child(even) {
+          left: 0;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .timeline-item:nth-child(even)::after {
+          left: 15px;
         }
-
-        /* Music Button Styles */
-        .music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--white);
-            color: var(--pink);
-            border: 2px solid var(--pink);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-        .music-btn:hover {
-            transform: scale(1.05);
-            background: var(--pink);
-            color: white;
-        }
-        
-
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="error-overlay">Audio file missing! Check your filenames. 🎵</div>
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Hey Abhii 🪄<br>This is just for you</h1>
-            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Because you deserve a little sunshine today.</p>
-            <a href="#appreciation" class="btn" onclick="startExperience()">Start 😁</a>
-        </div>
+      <div class="hero-content">
+        <h1 class="hero-title">Hey <span class="cursive">Abhii</span> 🪄</h1>
+        <p style="font-size: 1.4rem; font-weight: 600; color: var(--text-dark)">
+          Are you ready for your surprise? ✨
+        </p>
+        <p style="margin-bottom: 2rem; color: #888">
+          Scroll down to begin the journey...
+        </p>
+        <a href="#story" class="btn" onclick="startExperience()"
+          >Open Your Surprise 🎁</a
+        >
+      </div>
     </section>
 
+    <!-- STORY SECTION -->
     <section id="story" class="container">
-  <h2>A Small Story about Bubu 🐻✨</h2>
-  
-  <p style="font-size:1.1rem; line-height:1.8;">
-    Once upon a time… there was a girl named Bubu 🐻<br><br>
+      <div class="story-box fade-in">
+        <h2 class="cursive" style="text-align: center">
+          The Story of Bubu 🐻✨
+        </h2>
+        <p style="font-size: 1.15rem; line-height: 2">
+          Once upon a time… there was a girl named <b>Bubu</b> 🐻<br />
+          Aval oru single child… Romba soft, sensitive… and full of happy heart
+          ❤️<br /><br />
+          But time changed things. Sila people nala, sila situations nala, andha
+          happiness konjam konjam-a maranjiduchu. Aana Bubu hope-ah vida la
+          💫<br /><br />
+          Yaar evlo hurt pannalum, Bubu nature marna-thilla. Everyone can be
+          tough, but not everyone can be <b>"Butter"</b> 💛
+        </p>
+      </div>
 
-    Aval oru single child…<br>
-    Munnadi ellame  Romba soft, sensitive… and full of happy heart ❤️<br><br>
 
-    Aana… konjam naal la…<br>
-    Sila people nala… sila situations nala…<br>
-    Andha happiness konjam konjam-a maranjiduchu…<br><br>
+    <!-- MELTING STORY -->
+    <section class="container fade-in">
+      <div class="melt-section">
+        <h2 class="cursive">Butter Melting Times🫠</h2>
+        <p class="melt-text">
+          Sila nerathula namma life romba solid ah irukum… Everything clear…
+          happy ah… joyful ah pogum. 
+          
+          Aana sila nerathula… apdi irukathu . Enna nadakudhu nu puriyathu… 
+        
 
-    Aana enna theriyuma…<br>
-    Appo kooda Bubu hope-ah vida la 💫<br><br>
+          like
+          Butter  melt
+          aagura maari....Ethunalum pathukalam...
 
-    Yaar evlo hurt pannalum…<br>
-    Bubu avangaluku nallathu dhaan nenachuchu…<br>
-    Adhu dhaan Bubu nature… adhu dhaan BUBU magic ✨<br><br>
+          antha nerathula what pnnanum onnum panna venam .its done automatically.just watching vedikai only butter uhh.
 
-    Athanala dhaan… athu "Butter uhh" 💛<br>
-    Soft… kind… and irreplaceable…<br><br>
-
-    Ellarum Bubu maari iruka mudiyuma nu theriyala…<br>
-    Aana…<br><br>
-
-    👉 Bubu-ah konjam konjam-a sirikka vaika mudiyum 😊<br>
-    👉 Ava happy-a iruka help panna mudiyum 💖<br><br>
-
-    And this little space…<br>
-    Is just for that ❤️
-  </p>
-</section>
-
-    <!-- APPRECIATION SECTION -->
-    <section id="appreciation" class="container">
-        <h2>Why You Are Amazing 🌟</h2>
-        <p>A gentle reminder of how wonderful you are.</p>
-        <div class="cards-grid">
-            <div class="card fade-in">
-                <h3>Your Kindness</h3>
-                <p>Nee romba Kind ana Ponnu .Ellaraiyum Happiee and greatfulla Treat pannuva</p>
-            </div>
-            <div class="card fade-in">
-                <h3>Your Strength</h3>
-                <p>Absolutely You're Family , Mainly Amma I think avunga than unnoda Big Strength</p>
-            </div>
-            <div class="card fade-in">
-                <h3>Your Smile</h3>
-                <p>Butter Your Smile makes the days better</p>
-            </div>
-            <div class="card fade-in">
-                <h3>Your Presence</h3>
-                <p>Nee Irunthaley jolly thana .</p>
-            </div>
-            <div class="card fade-in">
-                <h3>Your Humor</h3>
-                <p>Your laugh is contagious and is honestly my favorite sound.Comedy pannuviyanu theriyathu ana sirika vachuruva</p>
-            </div>
-            <div class="card fade-in">
-                <h3>Your Comfort</h3>
-                <p>Alone a irukurathu peace nu solra ana athu kidaiyathu yena naan irukaney apram epdi alnoe 🤷</p>
-            </div>
-        </div>
+          
+        </p>
+      </div>
     </section>
 
-    <!-- COMFORT SECTION -->
-    <section id="comfort" class="container">
-        <h2>Need a Smile 🥺</h2>
-        <p style="margin-bottom: 1.5rem;">If things feel a little heavy right now, click the button.</p>
-        <button class="btn" onclick="generateComfort()">Click if you're feeling sad 🫂</button>
-        <div id="comfort-message"></div>
+    <!-- COMFORT -->
+    <section
+      id="comfort"
+      class="container"
+      style="
+        background: var(--light-pink);
+        border-radius: 50px;
+        margin-top: 3rem;
+      "
+    >
+      <h2 class="cursive">Butter uhh🫂</h2>
+      <button class="btn" onclick="generateComfort()">Tap for Magic ✨</button>
+      <div
+        id="comfort-message"
+        style="
+          margin-top: 2rem;
+          font-size: 1.4rem;
+          font-weight: 800;
+          color: var(--dark-pink);
+          min-height: 1.5em;
+          transition: opacity 0.3s;
+        "
+      ></div>
+    </section>
+
+    <!-- BIRTHDAY TIMELINE -->
+    <section id="timeline-section" class="container">
+      <h2 class="cursive">Your Magic Timeline ⏳✨</h2>
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Butter uhhh👶</h3>
+            <p>Enna than achuuu . Samnal medugalum soolum pugai mandalamum.....</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3></h3>
+            <p>Innoru tym oru maari iruku ,Plz tym kudu apdilam ketta avlothan pathuko . Loosu apdi kekatha enta mattum illa yaartaiyum . Nijamaley Athu edho naa unna ithana naal kasta paduthuna maari agiruchu. Enaku unnoda troubles a remove panra alavukalam maturity illa . Ana unnaiyum un stitution yum Purinchukura alavuku edho oru alavu iruku athu. Ana edho onnu apdinra odaney apdiye enanu kooda kandukama irukura matha friend maarilam illa naan.  </p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Right Now! 🪄</h3>
+            <p>Ana solla ponaa nee ponnurathavey maranthuten,athuvum illama veedu atha pathi yosikala😂😂. Apram yosichen Unaku anga apdi irukum enna pannitu irupanu. Ana nee Free a vidu butter uhh . Ella answers yum unta than iruku. Ana enaku needed ellamey ne eppaiyum Pola irukanum jolly and Happiee aa butter uhhhh </p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Contact</h3>
+            <p> Ethenum kuraikal or Suggestions irunthal thodarbu kolla vendiya nabar.
+                <br />
+                <a href="https://www.instagram.com/harini__11_6?igsh=MTVnanN5NnA2Z2ZhZg==" style="color: var(--dark-pink); font-weight: 800"
+                    > RATHEESH S 
+                   </a>
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Next uhhh</h3>
+            <p> Eppaiyum Pola En wish than first a irukanum .Advance happie birthday Butter uhhhh🤌🏻🤌🏻 </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown-section" class="container fade-in">
+      <h2 class="cursive">Countdown to Sep 13 🎂</h2>
+      <div class="countdown-container" id="countdown">
+        <div class="countdown-box">
+          <span class="countdown-num" id="days">00</span
+          ><span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="hours">00</span
+          ><span class="countdown-label">Hrs</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="mins">00</span
+          ><span class="countdown-label">Mins</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="secs">00</span
+          ><span class="countdown-label">Secs</span>
+        </div>
+      </div>
     </section>
 
     <!-- GAME SECTION -->
     <section id="game-section">
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <h2>Bubu is Hungry 🐻🍦</h2>
-            <p style="margin-bottom: 1.5rem;">Help Bubu eat the butterscotch ice creams!</p>
-            
-            <div class="game-container">
-                <div class="game-header">
-                    <span>Score: <span id="scoreVal">0</span></span>
-                    <span>Bubu 🐻</span>
-                </div>
-                <!-- Game Over Overlay -->
-                <div class="game-overlay" id="gameOverOverlay">
-                    <h2 style="margin-bottom: 0;">Oops! 🐻💥</h2>
-                    <p style="margin-bottom: 1.5rem;">Bubu got dizzy!</p>
-                    <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">Final Score: <span id="finalScore">0</span></p>
-                    <button class="btn" onclick="initGame()">Play Again 🔄</button>
-                </div>
-                <canvas id="gameCanvas" width="400" height="400"></canvas>
-            </div>
-            <p class="mobile-controls">Swipe to move on mobile, or use Arrow Keys on desktop.</p>
+      <div class="container">
+        <h2 class="cursive">Bubu's Snack Time 🐻🍦</h2>
+        <div class="game-wrapper">
+          <canvas id="gameCanvas" width="400" height="400"></canvas>
         </div>
+      </div>
     </section>
 
-    <!-- FINAL INTERACTIVE SECTION -->
-    <section id="final-section" class="container">
-        <h2>Tension Pogiruchaa, Are you happy? 😊</h2>
-        <div class="button-group" id="btnGroup">
-            <button class="btn btn-yes" onclick="showSuccessScreen()">YES 🪄</button>
-            <button class="btn btn-no" id="noBtn">NO 😜</button>
-        </div>
-    </section>
-
-    <!-- SUCCESS SCREEN (Hidden by default) -->
-    <div id="success-screen">
-        <h1>Yaaay 😍 I knew it!</h1>
-        <p style="font-size: 1.5rem; color: white; margin-top: 1rem; font-weight: 600;">Stay happy and Smile always Butter uhh 💖</p>
+    <!-- MUSIC -->
+    <div class="music-player">
+      <button class="music-btn" onclick="toggleMusic()" id="musicToggle">
+        🎵
+      </button>
     </div>
 
-    <!-- AUDIO ELEMENT & BUTTON -->
-    <audio id="song1" src="kanne.mp3"></audio>
-    <audio id="song2" src="unnavitta.mp3"></audio>
-    <audio id="song3" src="nenjin.mp3"></audio>
-    <button id="musicToggle" class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+    <!-- AUDIO ELEMENTS -->
+    <!-- Note: These files must exist in the same directory as this HTML for them to work -->
+    <audio id="song1" src="rara.mp3" preload="auto"></audio>
+    <audio id="song2" src="nenjin.mp3" preload="auto"></audio>
+    <audio id="song3" src="unnavitta.mp3" preload="auto"></audio>
 
     <script>
-        /* =========================================
-           1. HERO BACKGROUND ANIMATION
-           ========================================= */
-        function createFloatingHearts() {
-            const hero = document.getElementById('hero');
-            const emojis = ['🪄', '😁', '🌸', '✨'];
-            
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart-bg');
-                heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
-                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
-                
-                hero.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 8000);
-            }, 400);
-        }
-        createFloatingHearts();
+      // Error handling for missing files
+      function showError(msg) {
+        const overlay = document.getElementById("error-overlay");
+        overlay.innerText = msg;
+        overlay.style.display = "block";
+        setTimeout(() => {
+          overlay.style.display = "none";
+        }, 3000);
+      }
 
-        /* =========================================
-           2. SCROLL ANIMATIONS (Intersection Observer)
-           ========================================= */
-        const observerOptions = { threshold: 0.2 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+      function updateCountdown() {
+        const now = new Date();
+        let bday = new Date(`September 13, ${now.getFullYear()} 00:00:00`);
+        if (now > bday)
+          bday = new Date(`September 13, ${now.getFullYear() + 1} 00:00:00`);
+        const diff = bday - now;
+        document.getElementById("days").innerText = Math.floor(diff / 86400000)
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").innerText = Math.floor(
+          (diff % 86400000) / 3600000,
+        )
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("mins").innerText = Math.floor(
+          (diff % 3600000) / 60000,
+        )
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("secs").innerText = Math.floor(
+          (diff % 60000) / 1000,
+        )
+          .toString()
+          .padStart(2, "0");
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+      const songs = [
+  document.getElementById("song1"),
+  document.getElementById("song2"),
+  document.getElementById("song3"),
+];
 
-        /* =========================================
-           3. COMFORT MESSAGE GENERATOR
-           ========================================= */
-        const comfortMessages = [
-            "Don't Worry Pathukalam ",
-            "Unnoda antha Munbe vaa song voice ninachu pathuko Thannuku Relax Agiruva. 💖",
-            "Thakkanu odi poi pidichatha senju sapduu 🌸",
-            "naa venaa paattu paadi send pannava😂😂",
-    
-        ];
+let currentIdx = 0;
+let isPlaying = false;
 
-        function generateComfort() {
-            const msgDiv = document.getElementById('comfort-message');
-            msgDiv.style.opacity = 0;
-            
-            setTimeout(() => {
-                const randomMsg = comfortMessages[Math.floor(Math.random() * comfortMessages.length)];
-                msgDiv.innerText = randomMsg;
-                msgDiv.style.opacity = 1;
-            }, 300);
-        }
+// 🔊 SET GLOBAL VOLUME (change here)
+const GLOBAL_VOLUME = 0.25;
 
-        /* =========================================
-           4. BUBU SNAKE GAME (HTML5 Canvas)
-           ========================================= */
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        const scoreElement = document.getElementById('scoreVal');
-        const overlay = document.getElementById('gameOverOverlay');
-        const finalScoreEl = document.getElementById('finalScore');
-        
-        // Game settings
-        const gridSize = 20;
-        const tileCount = canvas.width / gridSize;
-        
-        let snake = [];
-        let food = {};
-        let dx = 0;
-        let dy = 0;
-        let score = 0;
-        let gameLoopId;
-        let gameActive = false;
+// apply volume to all songs
+songs.forEach((song) => {
+  song.volume = GLOBAL_VOLUME;
+});
 
-        function initGame() {
-            // Reset variables
-            snake = [
-                {x: 10, y: 10},
-                {x: 10, y: 11},
-                {x: 10, y: 12}
-            ];
-            dx = 0;
-            dy = -1; // moving up initially
-            score = 0;
-            scoreElement.innerText = score;
-            overlay.classList.remove('active');
-            gameActive = true;
-            
-            spawnFood();
-            
-            if (gameLoopId) clearInterval(gameLoopId);
-            // Game speed: 250ms per frame (speed kammi panniyachu)
-            gameLoopId = setInterval(gameLoop, 250);
-        }
+// 🎧 play current song
+function playCurrentSong() {
+  const song = songs[currentIdx];
 
-        function gameLoop() {
-            if (!gameActive) return;
-            moveSnake();
-            if (checkCollision()) {
-                gameOver();
-                return;
-            }
-            clearCanvas();
-            drawFood();
-            drawSnake();
-        }
+  song.currentTime = 0;
 
-        function clearCanvas() {
-            ctx.fillStyle = '#fcfcfc';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Optional: Draw subtle grid
-            ctx.strokeStyle = '#f0f0f0';
-            for(let i=0; i<=canvas.width; i+=gridSize){
-                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke();
-                ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); ctx.stroke();
-            }
-        }
-
-        function drawSnake() {
-            ctx.font = '18px Arial';
-            ctx.textBaseline = 'top';
-            
-            snake.forEach((segment, index) => {
-                // Head is Bubu, body is slightly smaller circles to look like a cute tail
-                if (index === 0) {
-                    ctx.fillText('🐻', segment.x * gridSize, segment.y * gridSize);
-                } else {
-                    ctx.fillStyle = '#ffb7b2'; // soft pink body
-                    ctx.beginPath();
-                    ctx.arc(
-                        segment.x * gridSize + gridSize/2, 
-                        segment.y * gridSize + gridSize/2, 
-                        gridSize/2 - 2, 
-                        0, Math.PI * 2
-                    );
-                    ctx.fill();
-                }
-            });
-        }
-
-        function drawFood() {
-            ctx.font = '18px Arial';
-            ctx.textBaseline = 'top';
-            ctx.fillText('🍦', food.x * gridSize, food.y * gridSize);
-        }
-
-        function moveSnake() {
-            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-            snake.unshift(head);
-            
-            // Check if ate food
-            if (head.x === food.x && head.y === food.y) {
-                score += 10;
-                scoreElement.innerText = score;
-                showFeedbackText('Yumm 😋', food.x * gridSize, food.y * gridSize);
-                spawnFood();
-            } else {
-                snake.pop(); // remove tail if no food eaten
-            }
-        }
-
-        function spawnFood() {
-            food = {
-                x: Math.floor(Math.random() * tileCount),
-                y: Math.floor(Math.random() * tileCount)
-            };
-            // Ensure food doesn't spawn on snake
-            snake.forEach(segment => {
-                if (segment.x === food.x && segment.y === food.y) {
-                    spawnFood();
-                }
-            });
-        }
-
-        function checkCollision() {
-            const head = snake[0];
-            // Wall collision
-            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
-                return true;
-            }
-            // Self collision
-            for (let i = 1; i < snake.length; i++) {
-                if (head.x === snake[i].x && head.y === snake[i].y) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        function gameOver() {
-            gameActive = false;
-            clearInterval(gameLoopId);
-            finalScoreEl.innerText = score;
-            overlay.classList.add('active');
-        }
-
-        function showFeedbackText(text, x, y) {
-            const feedback = document.createElement('div');
-            feedback.innerText = text;
-            feedback.className = 'feedback-text';
-            
-            // Position relative to the container
-            const container = document.querySelector('.game-container');
-            
-            feedback.style.left = `${x}px`;
-            feedback.style.top = `${y}px`;
-            
-            container.appendChild(feedback);
-            
-            setTimeout(() => {
-                feedback.remove();
-            }, 1000);
-        }
-
-        // --- Controls: Keyboard ---
-        document.addEventListener('keydown', e => {
-            if (!gameActive) return;
-            
-            // Prevent default scrolling for arrows
-            if([37, 38, 39, 40].includes(e.keyCode)) {
-                e.preventDefault();
-            }
-
-            if (e.key === 'ArrowUp' && dy !== 1) { dx = 0; dy = -1; }
-            if (e.key === 'ArrowDown' && dy !== -1) { dx = 0; dy = 1; }
-            if (e.key === 'ArrowLeft' && dx !== 1) { dx = -1; dy = 0; }
-            if (e.key === 'ArrowRight' && dx !== -1) { dx = 1; dy = 0; }
-        });
-
-        // --- Controls: Touch / Swipe (Mobile) ---
-        let touchStartX = 0;
-        let touchStartY = 0;
-        
-        canvas.addEventListener('touchstart', e => {
-            if (!gameActive) return;
-            // e.preventDefault(); // removed to allow scrolling if user touches outside game area, but touch-action:none handles canvas
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-        }, {passive: false});
-
-        canvas.addEventListener('touchend', e => {
-            if (!gameActive) return;
-            let touchEndX = e.changedTouches[0].screenX;
-            let touchEndY = e.changedTouches[0].screenY;
-            handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
-        }, {passive: false});
-
-        function handleSwipe(startX, startY, endX, endY) {
-            const deltaX = endX - startX;
-            const deltaY = endY - startY;
-            
-            // Minimum swipe distance
-            if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30) return;
-
-            if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                // Horizontal swipe
-                if (deltaX > 0 && dx !== -1) { dx = 1; dy = 0; } // Right
-                else if (deltaX < 0 && dx !== 1) { dx = -1; dy = 0; } // Left
-            } else {
-                // Vertical swipe
-                if (deltaY > 0 && dy !== -1) { dx = 0; dy = 1; } // Down
-                else if (deltaY < 0 && dy !== 1) { dx = 0; dy = -1; } // Up
-            }
-        }
-
-        // Start game initially
-        initGame();
-
-        /* =========================================
-           5. ESCAPING BUTTON LOGIC
-           ========================================= */
-        const noBtn = document.getElementById('noBtn');
-        const btnGroup = document.getElementById('btnGroup');
-
-        function moveButton() {
-            // Get constraints based on parent container
-            const containerRect = btnGroup.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-            
-            // Calculate random positions within a safe radius (so it doesn't leave the screen)
-            const maxX = 150;
-            const maxY = 100;
-            
-            const randomX = (Math.random() * maxX * 2) - maxX;
-            const randomY = (Math.random() * maxY * 2) - maxY;
-
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-        }
-
-        // For desktop
-        noBtn.addEventListener('mouseover', moveButton);
-        // For mobile
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // Prevent actual click/tap
-            moveButton();
-        });
-
-        /* =========================================
-           6. SUCCESS SCREEN LOGIC
-           ========================================= */
-        function showSuccessScreen() {
-            const screen = document.getElementById('success-screen');
-            screen.classList.add('active');
-            
-            // Create a burst of hearts
-            for(let i=0; i<30; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerText = ['🪄', '🥰', '🌸', '✨'][Math.floor(Math.random()*4)];
-                    heart.style.position = 'absolute';
-                    heart.style.left = Math.random() * 100 + 'vw';
-                    heart.style.top = '100vh';
-                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
-                    heart.style.animation = `floatUp ${Math.random() * 2 + 3}s ease-out forwards`;
-                    screen.appendChild(heart);
-                }, i * 100);
-            }
-        }
-/* =========================================
-   MULTIPLE SONG CONTROL (FIXED)
-   ========================================= */
-
-const song1 = document.getElementById("song1");
-const song2 = document.getElementById("song2");
-const song3 = document.getElementById("song3");
-
-let currentSong = null;
-
-// stop all songs
-function stopAllSongs() {
-    [song1, song2, song3].forEach(song => {
-        if (!song.paused) {
-            song.pause();
-            song.currentTime = 0;
-        }
+  song
+    .play()
+    .then(() => {
+      isPlaying = true;
+      document.getElementById("musicToggle").innerText = "⏸️";
+    })
+    .catch(() => {
+      showError("Click music button to enable audio 🎵");
     });
 }
 
-// play specific song (SAFE)
-function playSong(song) {
-    // 🛑 same song already playing na skip
-    if (currentSong === song && !song.paused) return;
+// 🛑 stop all songs
+function stopAllSongs() {
+  songs.forEach((s) => {
+    s.pause();
+    s.currentTime = 0;
+  });
+}
 
+// 🔁 next song with loop
+function nextSong() {
+  currentIdx = (currentIdx + 1) % songs.length;
+  playCurrentSong();
+}
+
+// 🎶 attach ended event
+songs.forEach((song) => {
+  song.addEventListener("ended", nextSong);
+});
+
+// 🎵 toggle music
+function toggleMusic() {
+  const song = songs[currentIdx];
+
+  if (!isPlaying) {
     stopAllSongs();
-
-    song.volume = 0.4;
-
-    song.play()
-        .then(() => {
-            currentSong = song;
-        })
-        .catch(e => console.log("Play error:", e));
+    playCurrentSong();
+  } else {
+    song.pause();
+    isPlaying = false;
+    document.getElementById("musicToggle").innerText = "🎵";
+  }
 }
-/* =========================================
-   AUTO NEXT SONG
-   ========================================= */
 
-// When song1 ends → play song2
-song1.addEventListener("ended", () => {
-    playSong(song2);
-});
-
-// When song2 ends → play song3
-song2.addEventListener("ended", () => {
-    playSong(song3);
-});
-
-// When song3 ends → optional (restart or stop)
-song3.addEventListener("ended", () => {
-    // Option 1: restart from song1
-    // playSong(song1);
-
-    // Option 2: just stop
-    currentSong = null;
-});
-
-/* =========================================
-   TRIGGERS
-   ========================================= */
-
-// Start button → Song 1
+// 🚀 start experience (first play)
 function startExperience() {
-    playSong(song1);
+  stopAllSongs();
+  currentIdx = 0;
+  playCurrentSong();
 }
+      const comfortMessages = [
+        "Don't Worry, Pathukalam! 🫂",
+        "Go eat something yummy! 🍦",
+        "I'm always here. ❤️",
+      ];
+      function generateComfort() {
+        const msgDiv = document.getElementById("comfort-message");
+        msgDiv.style.opacity = 0;
+        setTimeout(() => {
+          msgDiv.innerText =
+            comfortMessages[Math.floor(Math.random() * comfortMessages.length)];
+          msgDiv.style.opacity = 1;
+        }, 300);
+      }
 
-;
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      let snake = [{ x: 10, y: 10 }],
+        food = { x: 15, y: 15 },
+        dx = 1,
+        dy = 0,
+        gameActive = false,
+        timer;
 
-// YES button click → Song 3
-function showSuccessScreen() {
-    playSong(song3);
+      function initGame() {
+        snake = [{ x: 10, y: 10 }];
+        dx = 1;
+        dy = 0;
+        gameActive = true;
+        if (timer) clearInterval(timer);
+        timer = setInterval(draw, 180);
+      }
 
-    const screen = document.getElementById('success-screen');
-    screen.classList.add('active');
-}
+      function draw() {
+        if (!gameActive) return;
+        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+        if (
+          head.x < 0 ||
+          head.x >= 20 ||
+          head.y < 0 ||
+          head.y >= 20 ||
+          snake.some((s) => s.x === head.x && s.y === head.y)
+        ) {
+          gameActive = false;
+          initGame();
+          return;
+        }
+        snake.unshift(head);
+        if (head.x === food.x && head.y === food.y) {
+          food = {
+            x: Math.floor(Math.random() * 20),
+            y: Math.floor(Math.random() * 20),
+          };
+        } else snake.pop();
+        ctx.clearRect(0, 0, 400, 400);
+        ctx.font = "18px Arial";
+        ctx.fillText("🍦", food.x * 20, food.y * 20 + 18);
+        snake.forEach((s, i) =>
+          ctx.fillText(i === 0 ? "🐻" : "🟠", s.x * 20, s.y * 20 + 18),
+        );
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp" && dy === 0) {
+          dx = 0;
+          dy = -1;
+        }
+        if (e.key === "ArrowDown" && dy === 0) {
+          dx = 0;
+          dy = 1;
+        }
+        if (e.key === "ArrowLeft" && dx === 0) {
+          dx = -1;
+          dy = 0;
+        }
+        if (e.key === "ArrowRight" && dx === 0) {
+          dx = 1;
+          dy = 0;
+        }
+      });
+
+      // play voice notes
+      function playVoice(voiceId) {
+        const audioId =
+          voiceId === "voice1"
+            ? "song1"
+            : voiceId === "voice2"
+              ? "song2"
+              : "song3";
+        const audio = document.getElementById(audioId);
+        if (audio.paused) {
+          stopAllSongs();
+          audio.play().catch(() => showError("Voice note file missing 🎧"));
+          document.getElementById("btn-" + voiceId).innerText = "⏸";
+        } else {
+          audio.pause();
+          document.getElementById("btn-" + voiceId).innerText = "▶";
+        }
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      initGame();
     </script>
-</body>
+  </body>
 </html>
