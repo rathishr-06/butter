@@ -1,518 +1,522 @@
-<!doctype html>
+
+<!-- 🎵 AUDIO SONGS -->
+<audio id="song1" src="mdtp.mp3" preload="auto"></audio>
+<audio id="song2" src="mdtp2.mp3" preload="auto"></audio>
+<audio id="song3" src="unnavitta.mp3" preload="auto"></audio>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>Butter uhh🪄</title>
-    <style>
-      /* =========================================
-           CSS VARIABLES & RESET
-           ========================================= */
-      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap");
+<head>
+  <meta charset="UTF-8" />
 
-      :root {
-        --bg-color: #fffafa;
-        --pink: #ffb7b2;
-        --dark-pink: #ff8b94;
-        --light-pink: #ffe4e1;
-        --lavender: #e2d1f9;
-        --mint: #b5ead7;
-        --butter: #fff4bd;
-        --text-dark: #4a4a4a;
-        --white: #ffffff;
-        --shadow: 0 10px 30px rgba(255, 183, 178, 0.3);
-        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Nunito", sans-serif;
-        -webkit-tap-highlight-color: transparent;
-      }
+  <title>
+    Butter uhh 🪄 | A Digital Diary
+  </title>
 
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-dark);
-        overflow-x: hidden;
-        line-height: 1.6;
-      }
+  <!-- Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
 
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-        text-align: center;
-      }
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
-      h1,
-      h2,
-      h3 {
-        font-family: "Nunito", sans-serif;
-        font-weight: 800;
-        color: var(--dark-pink);
-        margin-bottom: 1.5rem;
-      }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-      .cursive {
-        font-family: "Pacifico", cursive;
-        color: #ff7480;
-      }
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      .btn {
-        background: linear-gradient(135deg, var(--pink), var(--dark-pink));
-        color: white;
-        border: none;
-        padding: 14px 40px;
-        border-radius: 50px;
-        font-size: 1.2rem;
-        font-weight: 800;
-        cursor: pointer;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        display: inline-block;
-        text-decoration: none;
-        position: relative;
-        overflow: hidden;
-      }
+<body>
+  <!-- ✨ BACKGROUND -->
+  <canvas
+    id="particleCanvas"
+    aria-hidden="true"
+  ></canvas>
 
-      /* =========================================
-           HERO SECTION
-           ========================================= */
-      #hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        background: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
-        overflow: hidden;
-        padding: 2rem 0;
-      }
+  <div
+    class="ambient-glow glow-one"
+    aria-hidden="true"
+  ></div>
 
-      .hero-content {
-        background: rgba(255, 255, 255, 0.4);
-        padding: 3rem;
-        border-radius: 40px;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: var(--shadow);
-        z-index: 10;
-        animation: bounceIn 1.2s ease-out;
-        max-width: 90%;
-        text-align: center;
-      }
+  <div
+    class="ambient-glow glow-two"
+    aria-hidden="true"
+  ></div>
 
-      .hero-title {
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        margin-bottom: 2rem;
-      }
+  <!-- 🦋 FLOATING -->
+  <div
+    class="butterflies"
+    aria-hidden="true"
+  >
+    <span>🦋</span>
+    <span>✦</span>
+    <span>♡</span>
+    <span>🦋</span>
+    <span>⋆</span>
+  </div>
 
-      /* =========================================
-           STORY SECTIONS
-           ========================================= */
-      .story-box {
-        background: white;
-        padding: 3rem;
-        border-radius: 35px;
-        box-shadow: var(--shadow);
-        margin-bottom: 3rem;
-        border-left: 8px solid var(--pink);
-        text-align: left;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: 0.8s ease-out;
-      }
+  <!-- 📖 MAIN -->
+  <main
+    class="diary-stage"
+    aria-label="Butter uhh digital diary"
+  >
 
-      .story-box.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .melt-section {
-        background: linear-gradient(to bottom, #fffafa, #fff4bd66);
-        padding: 4rem 2rem;
-        border-radius: 40px;
-        margin: 2rem 0;
-        text-align: center;
-        border: 2px dashed var(--butter);
-      }
-
-      .melt-text {
-        font-size: 1.25rem;
-        font-style: italic;
-        color: #555;
-        max-width: 700px;
-        margin: 0 auto;
-        line-height: 1.8;
-        white-space: pre-line;
-      }
-
-      /* =========================================
-           VOICE MESSAGE SECTION
-           ========================================= */
-      .voice-section {
-        margin: 4rem 0;
-        padding: 2rem;
-        background: #fff;
-        border-radius: 40px;
-        box-shadow: var(--shadow);
-      }
-
-      .voice-card {
-        display: flex;
-        align-items: center;
-        background: var(--light-pink);
-        padding: 1.5rem;
-        border-radius: 25px;
-        margin: 1.5rem 0;
-        gap: 1.5rem;
-        transition: var(--transition);
-      }
-
-      .voice-card:hover {
-        transform: scale(1.02);
-      }
-
-      .play-btn {
-        width: 60px;
-        height: 60px;
-        background: var(--dark-pink);
-        border-radius: 50%;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      .voice-info {
-        text-align: left;
-        flex-grow: 1;
-      }
-      .voice-info h4 {
-        color: var(--text-dark);
-        margin-bottom: 4px;
-      }
-      .voice-info p {
-        font-size: 0.9rem;
-        color: #666;
-      }
-
-      /* =========================================
-           TIMELINE & OTHER SECTIONS
-           ========================================= */
-      .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 3rem auto;
-        padding: 20px 0;
-      }
-
-      .timeline::after {
-        content: "";
-        position: absolute;
-        width: 6px;
-        background-color: var(--light-pink);
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -3px;
-        border-radius: 10px;
-      }
-
-      .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: 0.6s ease-out;
-      }
-
-      .timeline-item.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .timeline-item:nth-child(even) {
-        left: 50%;
-        transform: translateX(50px);
-      }
-      .timeline-item:nth-child(even).visible {
-        transform: translateX(0);
-      }
-
-      .timeline-content {
-        padding: 20px 30px;
-        background-color: white;
-        position: relative;
-        border-radius: 20px;
-        box-shadow: var(--shadow);
-      }
-
-      .timeline-item::after {
-        content: "🎂";
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        right: -17px;
-        top: 15px;
-        background-color: white;
-        border: 4px solid var(--pink);
-        border-radius: 50%;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-      }
-      .timeline-item:nth-child(even)::after {
-        left: -13px;
-      }
-
-      .countdown-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 2rem 0;
-      }
-
-      .countdown-box {
-        background: white;
-        padding: 15px;
-        border-radius: 20px;
-        min-width: 80px;
-        box-shadow: 0 5px 15px rgba(255, 139, 148, 0.2);
-        border: 2px solid var(--light-pink);
-      }
-
-      .countdown-num {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: var(--dark-pink);
-        display: block;
-      }
-
-      /* Error Message Styling */
-      #error-overlay {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #ff4d4d;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 10px;
-        z-index: 10000;
-        display: none;
-        font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      #game-section {
-        padding: 4rem 1rem;
-        background: #fff;
-      }
-      .game-wrapper {
-        position: relative;
-        max-width: 400px;
-        margin: 0 auto;
-        background: #fff;
-        border-radius: 30px;
-        padding: 15px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-        border: 8px solid var(--butter);
-      }
-
-      #gameCanvas {
-        display: block;
-        width: 100%;
-        border-radius: 15px;
-        background: #fafafa;
-        touch-action: none;
-      }
-
-      .music-player {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 1000;
-      }
-
-      .music-btn {
-        background: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        border: none;
-      }
-
-      @keyframes bounceIn {
-        0% {
-          opacity: 0;
-          transform: scale(0.3);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.05);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      @media screen and (max-width: 600px) {
-        .timeline::after {
-          left: 31px;
-        }
-        .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-        }
-        .timeline-item::after {
-          left: 15px;
-        }
-        .timeline-item:nth-child(even) {
-          left: 0;
-        }
-        .timeline-item:nth-child(even)::after {
-          left: 15px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="error-overlay">Audio file missing! Check your filenames. 🎵</div>
-
-    <!-- HERO SECTION -->
-    <section id="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Hey <span class="cursive">Abhii</span> 🪄</h1>
-        <p style="font-size: 1.4rem; font-weight: 600; color: var(--text-dark)">
-          Are you ready for your surprise? ✨
-        </p>
-        <p style="margin-bottom: 2rem; color: #888">
-          Scroll down to begin the journey...
-        </p>
-        <a href="#story" class="btn" onclick="startExperience()"
-          >Open Your Surprise 🎁</a
-        >
-      </div>
-    </section>
-
-    <!-- STORY SECTION -->
-    <section id="story" class="container">
-      <div class="story-box fade-in">
-        <h2 class="cursive" style="text-align: center">
-          The Story of Bubu 🐻✨
-        </h2>
-        <p style="font-size: 1.15rem; line-height: 2">
-          Once upon a time… there was a girl named <b>Bubu</b> 🐻<br />
-          Aval oru single child… Romba soft, sensitive… and full of happy heart
-          ❤️<br /><br />
-          But time changed things. Sila people nala, sila situations nala, andha
-          happiness konjam konjam-a maranjiduchu. Aana Bubu hope-ah vida la
-          💫<br /><br />
-          Yaar evlo hurt pannalum, Bubu nature marna-thilla. Everyone can be
-          tough, but not everyone can be <b>"Butter"</b> 💛
-        </p>
-      </div>
-
-
-    <!-- MELTING STORY -->
-    <section class="container fade-in">
-      <div class="melt-section">
-        <h2 class="cursive">Butter Melting Times🫠</h2>
-        <p class="melt-text">
-          Sila nerathula namma life romba solid ah irukum… Everything clear…
-          happy ah… joyful ah pogum. 
-          
-          Aana sila nerathula… apdi irukathu . Enna nadakudhu nu puriyathu… 
-        
-
-          like
-          Butter  melt
-          aagura maari....Ethunalum pathukalam...
-
-          antha nerathula what pnnanum onnum panna venam .its done automatically.just watching vedikai only butter uhh.
-
-          
-        </p>
-      </div>
-    </section>
-
-    <!-- COMFORT -->
+    <!-- CLOSED DIARY -->
     <section
-      id="comfort"
-      class="container"
-      style="
-        background: var(--light-pink);
-        border-radius: 50px;
-        margin-top: 3rem;
-      "
+      class="closed-diary"
+      id="closedDiary"
     >
-      <h2 class="cursive">Butter uhh🫂</h2>
-      <button class="btn" onclick="generateComfort()">Tap for Magic ✨</button>
-      <div
-        id="comfort-message"
-        style="
-          margin-top: 2rem;
-          font-size: 1.4rem;
-          font-weight: 800;
-          color: var(--dark-pink);
-          min-height: 1.5em;
-          transition: opacity 0.3s;
-        "
-      ></div>
+      <div class="cover-lock">♡</div>
+
+      <div class="cover-sheen"></div>
+
+      <div class="bookmark"></div>
+
+      <p class="cover-kicker">
+        soft little archive
+      </p>
+
+      <h2>When</h2>
+
+      <h1>Butter</h1>
+
+      <h2>Melts…🪄</h2>
+
+      <p>A digital diary</p>
+
+      <button
+        class="primary-button"
+        id="openDiary"
+      >
+        Open Diary
+      </button>
     </section>
 
-    <!-- BIRTHDAY TIMELINE -->
-    <section id="timeline-section" class="container">
-      <h2 class="cursive">Your Magic Timeline ⏳✨</h2>
-      <div class="timeline">
-        <div class="timeline-item fade-in">
-          <div class="timeline-content">
-            <h3>Butter uhhh👶</h3>
-            <p>Enna than achuuu . Samnal medugalum soolum pugai mandalamum.....</p>
-          </div>
+    <!-- 📚 BOOK -->
+    <section
+      class="book-shell"
+      id="bookShell"
+      aria-live="polite"
+    >
+
+      <!-- TOP BAR -->
+      <div class="book-topbar">
+        <button
+          class="icon-button"
+          id="prevPage"
+          aria-label="Previous page"
+        >
+          ‹
+        </button>
+
+        <div class="page-counter">
+          <span id="pageNow">1</span>
+          /
+          <span id="pageTotal">9</span>
         </div>
-        <div class="timeline-item fade-in">
-          <div class="timeline-content">
-            <h3></h3>
-            <p>Innoru tym oru maari iruku ,Plz tym kudu apdilam ketta avlothan pathuko . Loosu apdi kekatha enta mattum illa yaartaiyum . Nijamaley Athu edho naa unna ithana naal kasta paduthuna maari agiruchu. Enaku unnoda troubles a remove panra alavukalam maturity illa . Ana unnaiyum un stitution yum Purinchukura alavuku edho oru alavu iruku athu. Ana edho onnu apdinra odaney apdiye enanu kooda kandukama irukura matha friend maarilam illa naan.  </p>
-          </div>
-        </div>
-        <div class="timeline-item fade-in">
-          <div class="timeline-content">
-            <h3>Right Now! 🪄</h3>
-            <p>Ana solla ponaa nee ponnurathavey maranthuten,athuvum illama veedu atha pathi yosikala😂😂. Apram yosichen Unaku anga apdi irukum enna pannitu irupanu. Ana nee Free a vidu butter uhh . Ella answers yum unta than iruku. Ana enaku needed ellamey ne eppaiyum Pola irukanum jolly and Happiee aa butter uhhhh </p>
-          </div>
-        </div>
-        <div class="timeline-item fade-in">
-          <div class="timeline-content">
-            <h3>Contact</h3>
-            <p> Ethenum kuraikal or Suggestions irunthal thodarbu kolla vendiya nabar.
-                <br />
-                <a href="https://www.instagram.com/harini__11_6?igsh=MTVnanN5NnA2Z2ZhZg==" style="color: var(--dark-pink); font-weight: 800"
-                    > RATHEESH S 
-                   </a>
+
+        <button
+          class="icon-button"
+          id="nextPage"
+          aria-label="Next page"
+        >
+          ›
+        </button>
+      </div>
+
+      <!-- BOOK -->
+      <div class="book" id="diaryBook">
+
+        <!-- PAGE 1 -->
+        <article
+          class="page active cover-page"
+          data-page="1"
+        >
+          <div class="page-inner center">
+
+            <!-- IMAGE -->
+            <img
+              src="cover.jpg"
+              alt="Butter cover"
+              class="page-cover-image"
+            />
+
+            <div
+              class="sparkle-field"
+              aria-hidden="true"
+            ></div>
+
+            <p class="page-kicker">
+              page one
             </p>
+
+            <h2>Butter uhh 🪄</h2>
+
+            <p class="subtitle">
+              A digital diary
+            </p>
+
+            <p class="soft-note">
+              A warm place for feelings
+              that arrive quietly and
+              still deserve a whole sky.
+            </p>
+          </div>
+        </article>
+
+       ```html
+<!-- =========================
+PAGE 2 — HEART PAGE
+========================= -->
+<article class="page" data-page="2">
+  <div class="page-inner letter-page">
+
+    <p class="page-kicker">from heart to heart</p>
+
+    <h2>Dear Butter uhh 🪄</h2>
+
+    <div class="diary-letter">
+
+      <p>
+        Nee ninaikirathuku... nee kettathuku...
+        ellathukum ithula answer irukum.
+      </p>
+
+      <p>
+        Yes... naa unnecessary reasons ku sandai poten.
+        Ana athu ethume vittu porathukaga illa.
+      </p>
+
+      <p>
+        Off course naa jealous ah irunthen...
+        konjam over possessive ...
+        Unmaiya solla pona...
+        enna vida unna yaarum care panna kudathu nu nenachen.
+        Maybe adhu wrong ah irukalam...
+        but i am not sure...!
+      </p>
+
+      <p>
+        Nee sogama irukum pothu...
+        kasta padum pothu...
+        ellarum irunthum thaniya feel pannum pothu...
+        naa low aaiduven.
+      </p>
+
+      <p>
+        Why na?
+      </p>
+
+      <p class="highlight-line">
+        Because the reason is always you only.
+      </p>
+
+      <p>
+        Vera yaarachu antha idathula iruntha...
+        ivlo yosichiruka maten.
+        Ivlo worry panniruka maten.
+      </p>
+
+      <p>
+        You deserve all this care da butter uhh 🫂
+      </p>
+
+    </div>
+
+    <p class="page-footer-line">
+      you deserve for my care 🪄
+    </p>
+
+  </div>
+</article>
+
+<!-- =========================
+PAGE 3 — PROTECT PAGE
+========================= -->
+<article class="page" data-page="3">
+  <div class="page-inner letter-page">
+
+    <p class="page-kicker">protection</p>
+
+    <h2>One Truth 🌙</h2>
+
+    <div class="diary-letter">
+
+      <p>
+        Athanala than...
+        munnadi iruntha person maari iruka kudathu nu nenachen.
+        Ana athe time la...
+        naan naana than irunthen unta.
+      </p>
+
+      <p>
+        Nee adikadi solluva...
+        “thaniya irukurathu than better” nu.
+        Ana adhu full ah correct illa da maa.
+      </p>
+
+      <p>
+        Unna maari than naanum college varaikum thaniya than irunthen.
+        Small circle...
+        athula one or two peoples.
+      </p>
+
+      <p>
+        Until...
+      </p>
+
+      <p class="highlight-line">
+        Until I met you 🪄
+      </p>
+
+      <p>
+        Athunalayo ennavo...
+        enaku nadantha kastam ethuvum unaku nadaka kudathu nu nenachen.
+      </p>
+
+      <p>
+        Everyday...
+        every time...
+        unna protect panna nenachen.
+      </p>
+
+      <p>
+        Yaarum treat pannatha maari
+        unna special ah treat panna aasai paten.
+      </p>
+
+      <p class="princess-line">
+        Just like a princess 👑
+      </p>
+
+    </div>
+
+    <p class="page-footer-line">
+      soft hearts deserve soft care 🤍
+    </p>
+
+  </div>
+</article>
+
+<!-- =========================
+PAGE 4 — FEAR PAGE
+========================= -->
+<article class="page" data-page="4">
+  <div class="page-inner letter-page">
+
+    <p class="page-kicker">fear</p>
+
+
+    
+
+    <div class="diary-letter">
+<h3>I Was Scared ✨</h3>
+      <p>
+        Serious ah solren...
+        Unnoda friends  enaku enemy illa.
+      </p>
+
+      <p>
+        Naa bayandhathu onnu than.
+      </p>
+
+      <p class="highlight-line">
+        Again nee hurt aagiduviyo nu.
+      </p>
+
+      <p>
+        Nee college la avunga kooda pesum pothu...
+        honestly naa happy ah than feel pannen.
+      </p>
+
+      <p>
+        “Nee thaniya illa”
+        nu thonuchu.
+      </p>
+
+      <p>
+        Ana irunthalum bayam than.
+        Because enga again nee hurt aagiduviyo nu thonuchu.
+      </p>
+
+      <p>
+        Oru person ah nee trust pannumbothu...
+        avanga ethavathu pannita...
+        nee evlo hurt avenu i know da maa
+      </p>
+
+      <p class="highlight-line">
+        Enaku theriyum.
+      </p>
+
+    </div>
+
+    <p class="page-footer-line">
+      some fears come from caring too much 🌙
+    </p>
+
+  </div>
+</article>
+
+<!-- =========================
+PAGE 5 — APOLOGY PAGE
+========================= -->
+<article class="page" data-page="5">
+  <div class="page-inner letter-page">
+
+    <p class="page-kicker">sorry</p>
+
+    <h2>One Apology 🤍</h2>
+
+    <div class="diary-letter">
+
+      <p>
+        Serious ah solren...
+        naa ethaiyum hurt pannanu pannala.
+      </p>
+
+      <p>
+        Unfortunately...
+        sila things wrong ah poiruchu.
+      </p>
+
+      <p>
+        Athukaga...
+      </p>
+
+      <p class="highlight-line">
+        Ellathukum apologise pannikiren 🫂
+      </p>
+
+      <p>
+        Ipa varaikum unta naa ethaiyum expect pannathu illa.
+      </p>
+
+      <p>
+        Ana onnu mattum...
+      </p>
+
+      <p class="highlight-line big-line">
+        Walkover pannatha.
+      </p>
+
+      <p>
+        Ethu vena nadakalam...
+        ana plss...
+        “enna achu?” nu oru thadava kelu.
+      </p>
+
+      <p>
+        Because...
+      </p>
+
+      <p class="highlight-line">
+        Oru talk la neraya things sari aagidum.
+      </p>
+
+    </div>
+
+    <p class="page-footer-line">
+      apdiye pogathaaa 
+    </p>
+
+  </div>
+</article>
+
+<!-- =========================
+PAGE 6 — LAST HEART PAGE
+========================= -->
+<article class="page" data-page="6">
+  <div class="page-inner ending-heart-page">
+
+    <div class="ending-photo">
+      <img src="ending.jpg" alt="memory">
+    </div>
+
+    <p class="page-kicker">last page</p>
+
+    <h2>That's All Da Maa 🌙</h2>
+
+    <div class="diary-letter center-text">
+
+      <p>
+        Ennala...
+        “po” nu sonna odaney poira mudiyathu.
+      </p>
+
+      <p>
+        Hurt pannalum...
+        ignore pannalum...
+        avoid pannalum...
+      </p>
+
+      <p class="highlight-line">
+        Whatever happens...
+        I’ll still care.
+      </p>
+
+      <p>
+        Because...
+      </p>
+
+      <p class="final-line">
+        You deserve for my care and emotionzz 🪄
+      </p>
+
+      <p class="soft-end">
+        Avlothan da maa...
+      </p>
+
+
+
+    </div>
+
+  </div>
+</article>
+```
+
+        <!-- PAGE 5 -->
+        <article
+          class="page"
+          data-page="5"
+        >
+          <div
+            class="page-inner center comfort-page"
+          >
+
+            <p class="page-kicker">
+              comfort spell
+            </p>
+
+            <h2>
+              Tap for Magic ✨
+            </h2>
+
+            <p id="comfortMessage">
+              A soft message is waiting
+              under the page.
+            </p>
+
+            <button
+              class="primary-button small"
+              id="magicButton"
+            >
+              Tap for Magic ✨
+            </button>
+
           </div>
         </div>
         <div class="timeline-item fade-in">
@@ -526,7 +530,7 @@
 
     <!-- COUNTDOWN -->
     <section id="countdown-section" class="container fade-in">
-      <h2 class="cursive">Countdown to Sep 11 🎂</h2>
+      <h2 class="cursive">Countdown to Sep 13 🎂</h2>
       <div class="countdown-container" id="countdown">
         <div class="countdown-box">
           <span class="countdown-num" id="days">00</span
@@ -556,245 +560,47 @@
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- MUSIC -->
-    <div class="music-player">
-      <button class="music-btn" onclick="toggleMusic()" id="musicToggle">
-        🎵
-      </button>
-    </div>
+  <!-- 🎵 MUSIC PLAYER -->
+  <aside
+    class="music-dock"
+    aria-label="Music controls"
+  >
 
-    <!-- AUDIO ELEMENTS -->
-    <!-- Note: These files must exist in the same directory as this HTML for them to work -->
-    <audio id="song1" src="rara.mp3" preload="auto"></audio>
-    <audio id="song2" src="nenjin.mp3" preload="auto"></audio>
-    <audio id="song3" src="unnavitta.mp3" preload="auto"></audio>
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      aria-label="Play or pause music"
+    >
+      ♪
+    </button>
 
-    <script>
-      // Error handling for missing files
-      function showError(msg) {
-        const overlay = document.getElementById("error-overlay");
-        overlay.innerText = msg;
-        overlay.style.display = "block";
-        setTimeout(() => {
-          overlay.style.display = "none";
-        }, 3000);
-      }
+    <label>
+      <span>Volume</span>
 
-      function updateCountdown() {
-        const now = new Date();
-        let bday = new Date(`September 13, ${now.getFullYear()} 00:00:00`);
-        if (now > bday)
-          bday = new Date(`September 13, ${now.getFullYear() + 1} 00:00:00`);
-        const diff = bday - now;
-        document.getElementById("days").innerText = Math.floor(diff / 86400000)
-          .toString()
-          .padStart(2, "0");
-        document.getElementById("hours").innerText = Math.floor(
-          (diff % 86400000) / 3600000,
-        )
-          .toString()
-          .padStart(2, "0");
-        document.getElementById("mins").innerText = Math.floor(
-          (diff % 3600000) / 60000,
-        )
-          .toString()
-          .padStart(2, "0");
-        document.getElementById("secs").innerText = Math.floor(
-          (diff % 60000) / 1000,
-        )
-          .toString()
-          .padStart(2, "0");
-      }
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
+      <input
+        id="volumeControl"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.35"
+      />
+    </label>
 
-      const songs = [
-  document.getElementById("song1"),
-  document.getElementById("song2"),
-  document.getElementById("song3"),
-];
+    <small id="trackName">
+      Pastel Lullaby
+    </small>
 
-let currentIdx = 0;
-let isPlaying = false;
+  </aside>
 
-// 🔊 SET GLOBAL VOLUME (change here)
-const GLOBAL_VOLUME = 0.25;
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-// apply volume to all songs
-songs.forEach((song) => {
-  song.volume = GLOBAL_VOLUME;
-});
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
 
-// 🎧 play current song
-function playCurrentSong() {
-  const song = songs[currentIdx];
-
-  song.currentTime = 0;
-
-  song
-    .play()
-    .then(() => {
-      isPlaying = true;
-      document.getElementById("musicToggle").innerText = "⏸️";
-    })
-    .catch(() => {
-      showError("Click music button to enable audio 🎵");
-    });
-}
-
-// 🛑 stop all songs
-function stopAllSongs() {
-  songs.forEach((s) => {
-    s.pause();
-    s.currentTime = 0;
-  });
-}
-
-// 🔁 next song with loop
-function nextSong() {
-  currentIdx = (currentIdx + 1) % songs.length;
-  playCurrentSong();
-}
-
-// 🎶 attach ended event
-songs.forEach((song) => {
-  song.addEventListener("ended", nextSong);
-});
-
-// 🎵 toggle music
-function toggleMusic() {
-  const song = songs[currentIdx];
-
-  if (!isPlaying) {
-    stopAllSongs();
-    playCurrentSong();
-  } else {
-    song.pause();
-    isPlaying = false;
-    document.getElementById("musicToggle").innerText = "🎵";
-  }
-}
-
-// 🚀 start experience (first play)
-function startExperience() {
-  stopAllSongs();
-  currentIdx = 0;
-  playCurrentSong();
-}
-      const comfortMessages = [
-        "Don't Worry, Pathukalam! 🫂",
-        "Go eat something yummy! 🍦",
-        "I'm always here. ❤️",
-      ];
-      function generateComfort() {
-        const msgDiv = document.getElementById("comfort-message");
-        msgDiv.style.opacity = 0;
-        setTimeout(() => {
-          msgDiv.innerText =
-            comfortMessages[Math.floor(Math.random() * comfortMessages.length)];
-          msgDiv.style.opacity = 1;
-        }, 300);
-      }
-
-      const canvas = document.getElementById("gameCanvas");
-      const ctx = canvas.getContext("2d");
-      let snake = [{ x: 10, y: 10 }],
-        food = { x: 15, y: 15 },
-        dx = 1,
-        dy = 0,
-        gameActive = false,
-        timer;
-
-      function initGame() {
-        snake = [{ x: 10, y: 10 }];
-        dx = 1;
-        dy = 0;
-        gameActive = true;
-        if (timer) clearInterval(timer);
-        timer = setInterval(draw, 180);
-      }
-
-      function draw() {
-        if (!gameActive) return;
-        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-        if (
-          head.x < 0 ||
-          head.x >= 20 ||
-          head.y < 0 ||
-          head.y >= 20 ||
-          snake.some((s) => s.x === head.x && s.y === head.y)
-        ) {
-          gameActive = false;
-          initGame();
-          return;
-        }
-        snake.unshift(head);
-        if (head.x === food.x && head.y === food.y) {
-          food = {
-            x: Math.floor(Math.random() * 20),
-            y: Math.floor(Math.random() * 20),
-          };
-        } else snake.pop();
-        ctx.clearRect(0, 0, 400, 400);
-        ctx.font = "18px Arial";
-        ctx.fillText("🍦", food.x * 20, food.y * 20 + 18);
-        snake.forEach((s, i) =>
-          ctx.fillText(i === 0 ? "🐻" : "🟠", s.x * 20, s.y * 20 + 18),
-        );
-      }
-
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowUp" && dy === 0) {
-          dx = 0;
-          dy = -1;
-        }
-        if (e.key === "ArrowDown" && dy === 0) {
-          dx = 0;
-          dy = 1;
-        }
-        if (e.key === "ArrowLeft" && dx === 0) {
-          dx = -1;
-          dy = 0;
-        }
-        if (e.key === "ArrowRight" && dx === 0) {
-          dx = 1;
-          dy = 0;
-        }
-      });
-
-      // play voice notes
-      function playVoice(voiceId) {
-        const audioId =
-          voiceId === "voice1"
-            ? "song1"
-            : voiceId === "voice2"
-              ? "song2"
-              : "song3";
-        const audio = document.getElementById(audioId);
-        if (audio.paused) {
-          stopAllSongs();
-          audio.play().catch(() => showError("Voice note file missing 🎧"));
-          document.getElementById("btn-" + voiceId).innerText = "⏸";
-        } else {
-          audio.pause();
-          document.getElementById("btn-" + voiceId).innerText = "▶";
-        }
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.1 },
-      );
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
-
-      initGame();
-    </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
+```
